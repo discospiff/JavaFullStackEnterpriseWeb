@@ -13,7 +13,8 @@
 <h1>Welcome to PlantPlaces.com!</h1>
 <em><h:outputLabel value="#{applicationInfo.slogan}"/></em>
 
-Enter a plant name, and then choose Search.
+<h2>Plant Results for <h:outputLabel value="#{plantSearch.name}"/></h2>
+
 <h:form>
 <h:inputText value="#{plantSearch.name}" />
 <h:commandButton value="Submit" action="#{searchPlants.execute}"/>
