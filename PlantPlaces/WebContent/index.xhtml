@@ -15,8 +15,8 @@
 
 Enter a plant name, and then choose Search.
 <h:form>
-			<h:inputText value="#{plant.name}" />
-			<h:commandButton value="Submit" action="#{searchPlants.execute}" />
+			<p:inputText value="#{plant.name}" />
+			<p:commandButton value="Submit" actionListener="#{searchPlants.execute}" />
 
 		</h:form>
 <h4>The National Virtual Arboretum and Regional Ornamental Plant Database is 
