@@ -21,5 +21,11 @@ public class Plant {
 		this.name = name;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+	
 
 }
