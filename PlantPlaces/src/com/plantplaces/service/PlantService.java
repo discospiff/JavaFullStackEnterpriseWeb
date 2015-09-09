@@ -13,6 +13,7 @@ import com.plantplaces.dto.Plant;
 public class PlantService implements IPlantService {
 
 	@Inject
+	private
 	IPlantDAO plantDAO;
 	private List<Plant> allPlants;
 	
@@ -20,7 +21,7 @@ public class PlantService implements IPlantService {
 	public List<Plant> filterPlants(String filter) {
 		
 		if (allPlants == null ) {
-			allPlants = plantDAO.fetchPlants();
+			allPlants = getPlantDAO().fetchPlants();
 		}
 		
 		// the collection we are returning.
@@ -37,6 +38,14 @@ public class PlantService implements IPlantService {
 		
 		// TODO Auto-generated method stub
 		return returnPlants;
+	}
+
+	public IPlantDAO getPlantDAO() {
+		return plantDAO;
+	}
+
+	public void setPlantDAO(IPlantDAO plantDAO) {
+		this.plantDAO = plantDAO;
 	}
 
 }
