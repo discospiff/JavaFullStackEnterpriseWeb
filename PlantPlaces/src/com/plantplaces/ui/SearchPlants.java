@@ -21,8 +21,13 @@ public class SearchPlants {
 	@Inject
 	private Plant plant;
 	
+	/**
+	 * Handle button clicks from searches.
+	 * @return the next navigation.
+	 */
 	public String execute() {
-		
+
+		int i = 1;
 		if (plant != null && plant.getName().equalsIgnoreCase("Redbud")) {
 			return "search";
 			

@@ -1,9 +1,8 @@
-package com.plantplaces.ui.test;
+package com.plantplaces.ui;
 
 import org.junit.Test;
 
 import com.plantplaces.dto.Plant;
-import com.plantplaces.ui.SearchPlants;
 
 import junit.framework.TestCase;
 
@@ -53,7 +52,7 @@ public class TestSearchPlants extends TestCase {
 	}
 
 	private void thenVerifyReturnSuccess() {
-		assertEquals("success", execute);
+		assertEquals("search", execute);
 		
 	}
 
