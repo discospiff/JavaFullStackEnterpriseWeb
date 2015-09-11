@@ -13,8 +13,7 @@ import com.plantplaces.dto.Plant;
 public class PlantService implements IPlantService {
 
 	@Inject
-	private
-	IPlantDAO plantDAO;
+	private	IPlantDAO plantDAO;
 	private List<Plant> allPlants;
 	
 	@Override

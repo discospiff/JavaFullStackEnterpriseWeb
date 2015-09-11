@@ -11,6 +11,7 @@ import javax.inject.Named;
 import org.springframework.context.annotation.Scope;
 
 import com.plantplaces.dto.Plant;
+import com.plantplaces.service.IPlantService;
 
 @Named
 @ManagedBean
@@ -20,6 +21,9 @@ public class SearchPlants {
 
 	@Inject
 	private Plant plant;
+	
+	@Inject
+	private IPlantService plantService;
 	
 	/**
 	 * Handle button clicks from searches.
@@ -45,23 +49,7 @@ public class SearchPlants {
 	}
 
 	public List<Plant> completePlants(String query) {
-		ArrayList<Plant> allPlants = new ArrayList<Plant>();
-		
-		// Create plants and add them to the collection.
-		Plant redbud = new Plant();
-		redbud.setName("Eastern Redbud");
-		allPlants.add(redbud);
-		
-		Plant pawpaw = new Plant();
-		pawpaw.setName("Paw Paw");
-		allPlants.add(pawpaw);
-		
-		Plant nasturtium = new Plant();
-		nasturtium.setName("nasturtium");
-		allPlants.add(nasturtium);
-		
-		
-		return allPlants;
+		return plantService.filterPlants(query);
 	}
 
 
