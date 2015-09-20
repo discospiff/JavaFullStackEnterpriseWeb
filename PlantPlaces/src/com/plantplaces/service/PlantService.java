@@ -38,6 +38,11 @@ public class PlantService implements IPlantService {
 		// TODO Auto-generated method stub
 		return returnPlants;
 	}
+	
+	public void save(Plant plant) throws Exception {
+		plantDAO.insert(plant);
+
+	}
 
 	public IPlantDAO getPlantDAO() {
 		return plantDAO;
