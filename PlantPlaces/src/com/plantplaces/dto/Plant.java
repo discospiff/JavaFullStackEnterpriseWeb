@@ -16,6 +16,8 @@ public class Plant {
 	private String species;
 	private String cultivar;
 	private String common;
+	private int guid;
+	
 	
 	public String getGenus() {
 		return genus;
@@ -61,6 +63,14 @@ public class Plant {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return genus + "  " + species + " " + cultivar + " " + common;
+	}
+
+	public int getGuid() {
+		return guid;
+	}
+
+	public void setGuid(int guid) {
+		this.guid = guid;
 	}
 	
 
