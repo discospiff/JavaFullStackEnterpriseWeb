@@ -15,11 +15,12 @@
 
 Enter Plant Details
 <h:form>
+			<p:growl id="growl" showDetail="true" sticky="false" />
 			<h:outputLabel value="Genus"/><p:inputText value="#{plant.genus}"/><br />
 			<h:outputLabel value="Species"/><p:inputText value="#{plant.species}"/><br />
 			<h:outputLabel value="Cultivar"/><p:inputText value="#{plant.cultivar}"/><br />
 			<h:outputLabel value="Common Name"/><p:inputText value="#{plant.common}"/><br />
-			<p:commandButton value="Submit" actionListener="#{addPlant.execute}" /><br />
+			<p:commandButton value="Submit" actionListener="#{addPlant.execute}" update="growl"/><br />
 
 		</h:form>
 		</ui:define>

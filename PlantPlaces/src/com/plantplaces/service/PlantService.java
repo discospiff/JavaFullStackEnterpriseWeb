@@ -40,6 +40,9 @@ public class PlantService implements IPlantService {
 	}
 	
 	public void save(Plant plant) throws Exception {
+		if (plant.getGenus() == null || plant.getGenus().isEmpty()) {
+			throw new Exception ("Genus required");
+		}
 		plantDAO.insert(plant);
 
 	}
