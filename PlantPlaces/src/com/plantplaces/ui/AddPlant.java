@@ -6,6 +6,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 
 import com.plantplaces.dto.Plant;
@@ -16,6 +17,7 @@ import com.plantplaces.service.IPlantService;
 @Scope("session")
 public class AddPlant {
 	
+	final static Logger logger = Logger.getLogger(AddPlant.class);
 
 	@Inject
 	private Plant plant;
@@ -26,6 +28,7 @@ public class AddPlant {
 	private String message = "foo";
 
 	public String execute() {
+		logger.info("Entering the Execute method");
 		String returnValue = "";
 		
 		// get faces context
@@ -34,13 +37,16 @@ public class AddPlant {
 		try {
 			plantService.save(plant);
 			
+			logger.info("Save successful " + plant.toString());
+			
 			// what is the message that we want to show?
 			FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Saved", "Plant Saved");
 			// display the message
 			currentInstance.addMessage(null, fm);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			logger.error("Error while saving plant.  Message: " + e.getMessage());
+			
 			e.printStackTrace();
 			returnValue = "fail";
 			

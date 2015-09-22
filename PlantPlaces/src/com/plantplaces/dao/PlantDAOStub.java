@@ -5,10 +5,14 @@ import java.util.List;
 
 import javax.inject.Named;
 
+import org.apache.log4j.Logger;
+
 import com.plantplaces.dto.Plant;
 
 @Named("plantDAO")
 public class PlantDAOStub implements IPlantDAO {
+	
+	static final Logger log = Logger.getLogger(PlantDAOStub.class);
 
 	@Override
 	public List<Plant> fetchPlants() {
@@ -54,7 +58,7 @@ public class PlantDAOStub implements IPlantDAO {
 	@Override
 	public void insert(Plant plant) throws Exception {
 		// TODO Auto-generated method stub
-
+		log.warn("Inserting to stub; this does NOT persist the item"); 
 	}
 
 	@Override
