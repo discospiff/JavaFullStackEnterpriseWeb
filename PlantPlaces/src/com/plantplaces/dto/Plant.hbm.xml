@@ -11,6 +11,14 @@
         <property name="genus" type="string">
             <column name="GENUS" length="255" not-null="false" unique="false" />
         </property>
-        
+        <property name="species" type="string">
+            <column name="SPECIES" length="255" not-null="false" unique="false" />
+        </property>        
+        <property name="cultivar" type="string">
+            <column name="CULTIVAR" length="255" not-null="false" unique="false" />
+        </property>      
+        <property name="common" type="string">
+            <column name="COMMON" length="255" not-null="false" unique="false" />
+        </property>      
     </class>
 </hibernate-mapping>
