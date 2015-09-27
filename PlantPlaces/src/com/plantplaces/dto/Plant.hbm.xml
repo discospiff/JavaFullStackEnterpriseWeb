@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.plantplaces.dto.Plant" table="plants" catalog="plantplaces">
+        <id name="guid" type="java.lang.Integer">
+            <column name="PLANT_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="genus" type="string">
+            <column name="GENUS" length="255" not-null="false" unique="false" />
+        </property>
+        
+    </class>
+</hibernate-mapping>
