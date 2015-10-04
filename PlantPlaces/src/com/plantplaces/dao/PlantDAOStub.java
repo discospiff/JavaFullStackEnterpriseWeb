@@ -73,4 +73,8 @@ public class PlantDAOStub implements IPlantDAO {
 
 	}
 
+	public List<Plant> fetchPlants(Plant plant) {
+		return new ArrayList<Plant>();
+	}
+
 }
