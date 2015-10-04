@@ -24,6 +24,8 @@ public class SearchPlants {
 	
 	@Inject
 	private IPlantService plantService;
+
+	private List<Plant> plants;
 	
 	/**
 	 * Handle button clicks from searches.
@@ -31,10 +33,10 @@ public class SearchPlants {
 	 */
 	public String execute() {
 
-		int i = 1;
-		if (plant != null && plant.getName().equalsIgnoreCase("Redbud")) {
+		setPlants(plantService.fetchPlants(plant));
+		
+		if (plants.size() > 0){
 			return "search";
-			
 		} else {
 			return "noresults";
 		}
@@ -50,6 +52,14 @@ public class SearchPlants {
 
 	public List<Plant> completePlants(String query) {
 		return plantService.filterPlants(query);
+	}
+
+	public List<Plant> getPlants() {
+		return plants;
+	}
+
+	public void setPlants(List<Plant> plants) {
+		this.plants = plants;
 	}
 
 

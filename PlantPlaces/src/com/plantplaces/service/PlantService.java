@@ -46,6 +46,13 @@ public class PlantService implements IPlantService {
 		plantDAO.insert(plant);
 
 	}
+	
+
+	@Override
+	public List<Plant> fetchPlants(Plant plant) {
+		List<Plant> plants = plantDAO.fetchPlants(plant);
+		return plants;
+	}
 
 	public IPlantDAO getPlantDAO() {
 		return plantDAO;
