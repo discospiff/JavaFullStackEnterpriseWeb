@@ -15,6 +15,19 @@
 
 <h2>Plant Results for <h:outputLabel value="#{plantSearch.name}"/></h2>
 
+<p:dataTable var="plantResult" value="#{searchPlants.plants}">
+	<p:column headerText="Genus">
+		<h:outputText value="#{plantResult.genus}"/>
+	</p:column>
+	<p:column headerText="Species">
+		<h:outputText value="#{plantResult.species}"/>
+	</p:column>
+	<p:column headerText="Common">
+		<h:outputText value="#{plantResult.common}"/>
+	</p:column>
+</p:dataTable>
+
+
 <h:form>
 <h:inputText value="#{plant.name}" />
 <h:commandButton value="Submit" action="#{searchPlants.execute}"/>
