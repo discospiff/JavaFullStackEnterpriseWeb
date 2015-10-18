@@ -3,6 +3,7 @@
 <html lang="en"
  xmlns="http://www.w3.org/1999/xhtml"
  xmlns:h="http://xmlns.jcp.org/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
  xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -14,8 +15,11 @@
 <em><h:outputLabel value="#{applicationInfo.slogan}"/></em>
 
 <h2>Plant Results for <h:outputLabel value="#{plantSearch.name}"/></h2>
-
-<p:dataTable var="plantResult" value="#{searchPlants.plants}">
+<p:dataTable id="showPlants" var="plantResult" value="#{searchPlants.plants}" selectionMode="single"  rowKey="#{plantResult.guid}">
+	<p:ajax event="rowSelect" listener="#{searchPlants.onRowSelect}"  />
+	<p:column headerText="ID">
+		<h:outputText value="#{plantResult.guid}"/>
+	</p:column>
 	<p:column headerText="Genus">
 		<h:outputText value="#{plantResult.genus}"/>
 	</p:column>
@@ -25,12 +29,15 @@
 	<p:column headerText="Common">
 		<h:outputText value="#{plantResult.common}"/>
 	</p:column>
+	<f:facet name="footer">
+		<p:commandButton process="showPlants" value="View" action="#{searchPlants.showDetails}"/>
+	</f:facet>
 </p:dataTable>
 
 
 <h:form>
 <h:inputText value="#{plant.name}" />
-<h:commandButton value="Submit" action="#{searchPlants.execute}"/>
+<h:commandButton value="Submit" action="#{searchPlants.execute}" />
 
 </h:form>
 

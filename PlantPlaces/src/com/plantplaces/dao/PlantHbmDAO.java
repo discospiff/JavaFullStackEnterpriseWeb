@@ -34,7 +34,7 @@ public class PlantHbmDAO implements IPlantDAO {
 		@SuppressWarnings("rawtypes")
 		List list = query.list();
 		
-		List<Plant> plants = Collections.checkedList(list, Plant.class);
+		List<Plant> plants = list; //Collections.checkedList(list, Plant.class);
 		
 		return plants;
 	}

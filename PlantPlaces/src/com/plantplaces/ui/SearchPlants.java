@@ -1,13 +1,13 @@
 package com.plantplaces.ui;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.primefaces.event.SelectEvent;
 import org.springframework.context.annotation.Scope;
 
 import com.plantplaces.dto.Plant;
@@ -26,6 +26,8 @@ public class SearchPlants {
 	private IPlantService plantService;
 
 	private List<Plant> plants;
+	
+	private Plant selectedPlant;
 	
 	/**
 	 * Handle button clicks from searches.
@@ -48,6 +50,7 @@ public class SearchPlants {
 
 	public void setPlant(Plant plant) {
 		this.plant = plant;
+		
 	}
 
 	public List<Plant> completePlants(String query) {
@@ -62,5 +65,17 @@ public class SearchPlants {
 		this.plants = plants;
 	}
 
+	public Plant getSelectedPlant() {
+		return selectedPlant;
+	}
+
+	public void setSelectedPlant(Plant selectedPlant) {
+		this.selectedPlant = selectedPlant;
+	}
+
+    public void onRowSelect(SelectEvent event) {
+        Plant plant  = ((Plant) event.getObject());
+        int i = 1 + 1;
+    }
 
 }
