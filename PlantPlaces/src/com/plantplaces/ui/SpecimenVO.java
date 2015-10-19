@@ -8,16 +8,20 @@ import org.springframework.context.annotation.Scope;
 
 import com.plantplaces.dto.Plant;
 import com.plantplaces.dto.Specimen;
+import com.plantplaces.service.IPlantService;
 
 @Named
 @ManagedBean
-@Scope("session")
+@Scope("request")
 public class SpecimenVO {
 
 	private Plant plant;
 	
 	@Inject
 	private Specimen specimen;
+	
+	@Inject
+	private IPlantService plantService;
 
 	public Plant getPlant() {
 		return plant;
@@ -36,8 +40,19 @@ public class SpecimenVO {
 	}
 
 	public String save() {
-		int i = 1 + 1;
-		return "specimensaved";
+		// set the foreign key to plant ID before saving.
+		specimen.setPlantId(plant.getGuid());
+		
+		try {
+			plantService.save(specimen);
+			return "specimensaved";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "failed";
+		}
+		
+		
 	}
 
 	

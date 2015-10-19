@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.plantplaces.dto.Specimen" table="specimens" catalog="plantplaces">
+        <id name="id" type="java.lang.Integer">
+            <column name="SPECIMEN_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="plantId" type="java.lang.Integer">
+            <column name="PLANT_ID"  />
+        </property>
+        <property name="latitude" type="string">
+            <column name="LATITUDE" length="60" not-null="false" unique="false" />
+        </property>        
+        <property name="longitude" type="string">
+            <column name="LONGITUDE" length="60" not-null="false" unique="false" />
+        </property>      
+        <property name="plantedBy" type="string">
+            <column name="PLANTED_BY" length="255" not-null="false" unique="false" />
+        </property>
+        <property name="plantedDate" type="string">
+            <column name="PLANTED_DATE" length="255" not-null="false" unique="false" />
+        </property>      
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="255" not-null="false" unique="false" />
+        </property>      
+              
+    </class>
+</hibernate-mapping>
