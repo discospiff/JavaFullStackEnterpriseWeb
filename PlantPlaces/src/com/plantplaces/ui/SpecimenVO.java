@@ -12,7 +12,7 @@ import com.plantplaces.service.IPlantService;
 
 @Named
 @ManagedBean
-@Scope("request")
+@Scope("session")
 public class SpecimenVO {
 
 	private Plant plant;
@@ -29,6 +29,12 @@ public class SpecimenVO {
 
 	public void setPlant(Plant plant) {
 		this.plant = plant;
+		loadSpecimens();
+	}
+
+	private void loadSpecimens() {
+		// TODO Auto-generated method stub
+		plantService.loadSpecimens(plant);
 	}
 
 	public Specimen getSpecimen() {

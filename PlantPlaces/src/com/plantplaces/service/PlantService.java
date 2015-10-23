@@ -72,5 +72,13 @@ public class PlantService implements IPlantService {
 	public void save(Specimen specimen) throws Exception {
 		specimenDAO.insert(specimen);
 	}
+
+	@Override
+	public void loadSpecimens(Plant plant) {
+		// TODO Auto-generated method stub
+		List<Specimen> specimens = specimenDAO.fetchByPlantId(plant.getGuid());
+		plant.setSpecimens(specimens);
+		
+	}
 	
 }

@@ -11,13 +11,32 @@
 	<ui:define name="top">PlantPlaces.com: Specimen</ui:define>
 	<ui:define name="content">
 		<h1>Specimen</h1>
-		<em><h:outputLabel value="#{specimenVO.plant.common}" /></em>
-<h:form>
+		<em><h:outputLabel value="#{specimenVO.plant.common}" /></em><br/>
+		<p:dataTable id="showSpecimens" var="specimenResult" value="#{specimenVO.plant.specimens}" selectionMode="single"  rowKey="#{specimenResult.id}">
+			<p:ajax event="rowSelect" listener="#{specimenVO.onRowSelect}"  />
+			<p:column headerText="ID">
+				<h:outputText value="#{specimenResult.id}"/>
+			</p:column>
+			<p:column headerText="Latitude">
+				<h:outputText value="#{specimenResult.latitude}"/>
+			</p:column>
+			<p:column headerText="Longitude">
+				<h:outputText value="#{specimenResult.longitude}"/>
+			</p:column>
+			<p:column headerText="Description">
+				<h:outputText value="#{specimenResult.description}"/>
+			</p:column>
+
+		</p:dataTable>
+
+	<h:form>
 			<p:growl id="growl" showDetail="true" sticky="false" />
-			<h:outputLabel value="Latitude"/><p:inputText value="#{specimenVO.specimen.latitude}"/><br />
-			<h:outputLabel value="Longitude"/><p:inputText value="#{specimenVO.specimen.longitude}"/><br />
-			<h:outputLabel value="Planted By"/><p:inputText value="#{specimenVO.specimen.plantedBy}"/><br />
-			<h:outputLabel value="Planted Date"/><p:inputText value="#{specimenVO.specimen.plantedDate}"/><br />
+			<div class="inputData">
+				<h:outputLabel value="Latitude"/><p:inputText value="#{specimenVO.specimen.latitude}"/><br />
+				<h:outputLabel value="Longitude"/><p:inputText value="#{specimenVO.specimen.longitude}"/><br />
+				<h:outputLabel value="Planted By"/><p:inputText value="#{specimenVO.specimen.plantedBy}"/><br />
+				<h:outputLabel value="Planted Date"/><p:inputText value="#{specimenVO.specimen.plantedDate}"/><br />
+			</div>
 			<p:commandButton value="Submit" actionListener="#{specimenVO.save}" update="growl"/><br />
 
 		</h:form>

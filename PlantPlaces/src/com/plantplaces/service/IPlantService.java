@@ -34,5 +34,11 @@ public interface IPlantService {
 	List<Plant> fetchPlants(Plant plant);
 
 	void save(Specimen specimen) throws Exception;
+
+	/**
+	 * Load specimens for a given plant.
+	 * @param plant
+	 */
+	public void loadSpecimens(Plant plant);
 	
 }

@@ -40,3 +40,16 @@
 	.printonly {
 		display:none;
 	}
+	
+	.inputData {
+		background-color:#d6bd91;
+	}
+	
+	.inputData input {
+		margin-left: 9em;
+	}
+	
+	.inputData label {
+		position:absolute;
+	}
+	
