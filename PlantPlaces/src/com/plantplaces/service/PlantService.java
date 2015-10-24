@@ -1,13 +1,18 @@
 package com.plantplaces.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.plantplaces.dao.IFileDAO;
 import com.plantplaces.dao.IPlantDAO;
 import com.plantplaces.dao.ISpecimenDAO;
+import com.plantplaces.dto.Photo;
 import com.plantplaces.dto.Plant;
 import com.plantplaces.dto.Specimen;
 
@@ -19,6 +24,10 @@ public class PlantService implements IPlantService {
 	
 	@Inject
 	private ISpecimenDAO specimenDAO;
+	
+	@Inject
+	private IFileDAO fileDAO;
+	
 	
 	private List<Plant> allPlants;
 	
@@ -79,6 +88,13 @@ public class PlantService implements IPlantService {
 		List<Specimen> specimens = specimenDAO.fetchByPlantId(plant.getGuid());
 		plant.setSpecimens(specimens);
 		
+	}
+	
+	@Override
+	public void savePhoto(Photo photo, InputStream inputStream) throws IOException {
+		File directory = new File("/pictures");
+		File file = new File(directory, "image.jpg");
+		fileDAO.save(inputStream, file);
 	}
 	
 }
