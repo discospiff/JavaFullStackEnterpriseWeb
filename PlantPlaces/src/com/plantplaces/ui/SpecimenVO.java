@@ -1,9 +1,13 @@
 package com.plantplaces.ui;
 
+import java.io.IOException;
+
 import javax.annotation.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.primefaces.event.SelectEvent;
 import org.springframework.context.annotation.Scope;
 
 import com.plantplaces.dto.Plant;
@@ -60,6 +64,16 @@ public class SpecimenVO {
 		
 		
 	}
+	
+    public void onRowSelect(SelectEvent event) {
+        Specimen specimen = ((Specimen) event.getObject());
+     
+        // push the selected plant into SpecimenVO.
+        setSpecimen(specimen);
+                
+    }
+
+
 
 	
 }

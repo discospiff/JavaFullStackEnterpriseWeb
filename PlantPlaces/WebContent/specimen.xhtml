@@ -26,7 +26,12 @@
 			<p:column headerText="Description">
 				<h:outputText value="#{specimenResult.description}"/>
 			</p:column>
-
+			<p:column headerText="Planted By">
+				<h:outputText value="#{specimenResult.plantedBy}"/>
+			</p:column>
+						<p:column headerText="Planted Date">
+				<h:outputText value="#{specimenResult.plantedDate}"/>
+			</p:column>
 		</p:dataTable>
 
 	<h:form>
