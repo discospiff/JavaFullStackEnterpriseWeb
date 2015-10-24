@@ -3,7 +3,9 @@ package com.plantplaces.service;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -92,9 +94,25 @@ public class PlantService implements IPlantService {
 	
 	@Override
 	public void savePhoto(Photo photo, InputStream inputStream) throws IOException {
-		File directory = new File("/pictures");
-		File file = new File(directory, "image.jpg");
+		File directory = new File("/git/PlantPlaces/WebContent/images");
+		String uniqueImageName = getUniqueImageName();
+		File file = new File(directory, uniqueImageName);
 		fileDAO.save(inputStream, file);
+		
+		photo.setUri(uniqueImageName);
+		// eventually, save the photo to the database.
+	}
+
+	private String getUniqueImageName() {
+		// TODO Auto-generated method stub
+		String imagePrefix = "plantPlaces";
+		String imageSuffix = ".jpg";
+		String middle ="";
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmss");
+		middle = sdf.format(new Date());
+		
+		return imagePrefix + middle + imageSuffix;
 	}
 	
 }
