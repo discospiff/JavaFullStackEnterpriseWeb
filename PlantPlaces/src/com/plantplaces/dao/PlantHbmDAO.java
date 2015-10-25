@@ -8,7 +8,7 @@ import org.hibernate.Session;
 
 import com.plantplaces.dto.Plant;
 
-public class PlantHbmDAO implements IPlantDAO {
+public class PlantHbmDAO extends PlantPlacesHbmDAO<Plant> implements IPlantDAO {
 
 	@Override
 	public List<Plant> fetchPlants() {
@@ -40,14 +40,9 @@ public class PlantHbmDAO implements IPlantDAO {
 	}
 
 	@Override
-	public void insert(Plant plant) throws Exception {
-		// save the plant to the database.
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		session.beginTransaction();
+	public void insert(Session session, Plant plant) throws Exception {
 		
 		session.save(plant);
-		
-		session.getTransaction().commit();
 
 	}
 

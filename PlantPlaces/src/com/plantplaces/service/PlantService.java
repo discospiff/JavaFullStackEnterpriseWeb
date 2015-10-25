@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.plantplaces.dao.IFileDAO;
+import com.plantplaces.dao.IPhotoDAO;
 import com.plantplaces.dao.IPlantDAO;
 import com.plantplaces.dao.ISpecimenDAO;
 import com.plantplaces.dto.Photo;
@@ -30,6 +31,8 @@ public class PlantService implements IPlantService {
 	@Inject
 	private IFileDAO fileDAO;
 	
+	@Inject
+	private IPhotoDAO photoDAO;
 	
 	private List<Plant> allPlants;
 	
@@ -60,7 +63,7 @@ public class PlantService implements IPlantService {
 		if (plant.getGenus() == null || plant.getGenus().isEmpty()) {
 			throw new Exception ("Genus required");
 		}
-		plantDAO.insert(plant);
+		plantDAO.save(plant);
 
 	}
 	
@@ -81,7 +84,7 @@ public class PlantService implements IPlantService {
 
 	@Override
 	public void save(Specimen specimen) throws Exception {
-		specimenDAO.insert(specimen);
+		specimenDAO.save(specimen);
 	}
 
 	@Override
@@ -93,7 +96,7 @@ public class PlantService implements IPlantService {
 	}
 	
 	@Override
-	public void savePhoto(Photo photo, InputStream inputStream) throws IOException {
+	public void savePhoto(Photo photo, InputStream inputStream) throws Exception {
 		File directory = new File("/git/PlantPlaces/WebContent/images");
 		String uniqueImageName = getUniqueImageName();
 		File file = new File(directory, uniqueImageName);
@@ -101,6 +104,7 @@ public class PlantService implements IPlantService {
 		
 		photo.setUri(uniqueImageName);
 		// eventually, save the photo to the database.
+		photoDAO.save(photo);
 	}
 
 	private String getUniqueImageName() {

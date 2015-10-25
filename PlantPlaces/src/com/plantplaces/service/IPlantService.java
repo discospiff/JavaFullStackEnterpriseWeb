@@ -45,6 +45,6 @@ public interface IPlantService {
 	 */
 	public void loadSpecimens(Plant plant);
 
-	void savePhoto(Photo photo, InputStream inputStream) throws IOException;
+	void savePhoto(Photo photo, InputStream inputStream) throws Exception;
 	
 }

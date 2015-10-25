@@ -13,5 +13,6 @@
         <property name="show_sql">true</property>
         <mapping resource="com/plantplaces/dto/Plant.hbm.xml"></mapping>
         <mapping resource="com/plantplaces/dto/Specimen.hbm.xml"></mapping>
+        <mapping resource="com/plantplaces/dto/Photo.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>

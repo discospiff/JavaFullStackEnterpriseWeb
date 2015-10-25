@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.plantplaces.dto.Photo" table="photos" catalog="plantplaces">
+        <id name="id" type="java.lang.Integer">
+            <column name="PHOTO_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="specimenId" type="java.lang.Integer">
+            <column name="SPECIMEN_ID"  />
+        </property>
+        <property name="uri" type="string">
+            <column name="URI" length="255" not-null="false" unique="false" />
+        </property>        
+        <property name="dateTaken" type="java.util.Date">
+            <column name="DATE_TAKEN" length="60" not-null="false" unique="false" />
+        </property>      
+        <property name="contributor" type="string">
+            <column name="CONTRIBUTOR" length="255" not-null="false" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -9,8 +9,9 @@ import com.plantplaces.dto.Specimen;
 
 public interface ISpecimenDAO {
 
-	void insert(Specimen specimen) throws Exception;
+	void insert(Session session, Specimen specimen) throws Exception;
 
 	List<Specimen> fetchByPlantId(int plantId);
+	void save(Specimen specimen) throws Exception;
 
 }
