@@ -2,6 +2,7 @@ package com.plantplaces.ui;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.annotation.ManagedBean;
 import javax.faces.application.FacesMessage;
@@ -33,6 +34,8 @@ public class SpecimenVO {
 	
 	@Inject
 	private IPlantService plantService;
+	
+	private List<Photo> photos;
 	
 	private UploadedFile file;
 
@@ -79,6 +82,9 @@ public class SpecimenVO {
      
         // push the selected plant into SpecimenVO.
         setSpecimen(specimen);
+        
+        // now that we've selected a specimen, let's find the matching photos.
+        photos = plantService.fetchPhotos(specimen);
         
         try {
  			FacesContext.getCurrentInstance().getExternalContext().redirect("specimen.xhtml");
@@ -131,6 +137,14 @@ public class SpecimenVO {
 
 	public void setPhoto(Photo photo) {
 		this.photo = photo;
+	}
+
+	public List<Photo> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<Photo> photos) {
+		this.photos = photos;
 	}
 
 

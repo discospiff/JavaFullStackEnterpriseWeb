@@ -97,7 +97,7 @@ public class PlantService implements IPlantService {
 	
 	@Override
 	public void savePhoto(Photo photo, InputStream inputStream) throws Exception {
-		File directory = new File("/git/PlantPlaces/WebContent/images");
+		File directory = new File("/git/PlantPlaces/WebContent/resources/images");
 		String uniqueImageName = getUniqueImageName();
 		File file = new File(directory, uniqueImageName);
 		fileDAO.save(inputStream, file);
@@ -119,4 +119,9 @@ public class PlantService implements IPlantService {
 		return imagePrefix + middle + imageSuffix;
 	}
 	
+	
+	@Override
+	public List<Photo> fetchPhotos(Specimen specimen) {
+		return photoDAO.fetchPhotos(specimen);
+	}
 }

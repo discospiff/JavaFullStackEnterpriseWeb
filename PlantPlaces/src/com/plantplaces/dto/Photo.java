@@ -43,4 +43,10 @@ public class Photo {
 		this.contributor = contributor;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return uri;
+	}
+	
 }
