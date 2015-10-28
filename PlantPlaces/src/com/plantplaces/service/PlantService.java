@@ -1,7 +1,6 @@
 package com.plantplaces.service;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,6 +17,8 @@ import com.plantplaces.dao.ISpecimenDAO;
 import com.plantplaces.dto.Photo;
 import com.plantplaces.dto.Plant;
 import com.plantplaces.dto.Specimen;
+
+import net.coobird.thumbnailator.Thumbnails;
 
 @Named
 public class PlantService implements IPlantService {
@@ -101,6 +102,12 @@ public class PlantService implements IPlantService {
 		String uniqueImageName = getUniqueImageName();
 		File file = new File(directory, uniqueImageName);
 		fileDAO.save(inputStream, file);
+		
+
+		File thumbnailDirectory = new File("/git/PlantPlaces/WebContent/resources/thumbnails");
+		File thumbnail = new File(thumbnailDirectory, uniqueImageName);
+
+		Thumbnails.of(file).size(100, 100).toFile(thumbnail);
 		
 		photo.setUri(uniqueImageName);
 		// eventually, save the photo to the database.
