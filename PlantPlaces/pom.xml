@@ -86,9 +86,14 @@
 			<version>5.1.31</version>
 		</dependency>
 		<dependency>
-		  <groupId>net.coobird</groupId>
-		  <artifactId>thumbnailator</artifactId>
-		  <version>[0.4, 0.5)</version>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>[0.4, 0.5)</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-camel</artifactId>
+			<version>5.6.0</version>
 		</dependency>
 	</dependencies>
 </project>

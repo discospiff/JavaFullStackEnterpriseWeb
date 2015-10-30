@@ -38,6 +38,9 @@ public class PlantService implements IPlantService {
 	@Inject
 	private IPhotoDAO photoDAO;
 	
+	@Inject
+	private JMSBean jmsBean;
+	
 	private List<Plant> allPlants;
 	
 	@Override
@@ -106,6 +109,7 @@ public class PlantService implements IPlantService {
 		File file = new File(directory, uniqueImageName);
 		fileDAO.save(inputStream, file);
 		
+		jmsBean.submit(file.toString());
 
 		File thumbnailDirectory = new File("/git/PlantPlaces/WebContent/resources/thumbnails");
 		File thumbnail = new File(thumbnailDirectory, uniqueImageName);
