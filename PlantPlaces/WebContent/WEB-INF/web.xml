@@ -20,6 +20,15 @@
     <url-pattern>/faces/*</url-pattern>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Plant JSON Servlet</servlet-name>
+    <servlet-class>com.plantplaces.ui.PlantJSONServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Plant JSON Servlet</servlet-name>
+    <url-pattern>/plants</url-pattern>
+  </servlet-mapping>
   <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>

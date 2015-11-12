@@ -3,10 +3,10 @@ package com.plantplaces.ui;
 import javax.annotation.ManagedBean;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
 import com.plantplaces.dto.Plant;
@@ -19,10 +19,10 @@ public class AddPlant {
 	
 	final static Logger logger = Logger.getLogger(AddPlant.class);
 
-	@Inject
+	
 	private Plant plant;
 	
-	@Inject
+	@Autowired
 	private IPlantService plantService;
 	
 	private String message = "foo";
