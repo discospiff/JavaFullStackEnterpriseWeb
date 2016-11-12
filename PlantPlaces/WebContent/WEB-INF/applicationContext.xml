@@ -15,5 +15,12 @@
 	<bean id="PlantHbmDAO" name="plantDAO" class="com.plantplaces.dao.PlantHbmDAO"/>
 
 	<context:component-scan base-package="com.plantplaces" />
+	
+	<bean name="plantServiceExporter"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+        <property name="service" ref="plantService" />
+        <property name="serviceInterface" value="com.plantplaces.service.IPlantService" />
+	</bean>
+
 
 </beans>

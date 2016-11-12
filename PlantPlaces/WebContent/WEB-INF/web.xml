@@ -82,4 +82,13 @@
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/servlet/AdminServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>plantServiceExporter</servlet-name>
+    <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
+  </servlet>
+	<servlet-mapping>
+	    <servlet-name>plantServiceExporter</servlet-name>
+	    <url-pattern>/remoting/PlantService</url-pattern>
+	</servlet-mapping>
+
 </web-app>
