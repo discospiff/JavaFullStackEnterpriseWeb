@@ -38,6 +38,7 @@ Mockito |	Mockito is a mocking framework, Java-based library that is used for ef
 Web API	| A framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobile devices
 API	| Application program interface (API) is a set of routines, protocols, and tools for building software applications. An API specifies how software components should interact and APIs are used when programming graphical user interface (GUI) components.
 EclEmma |	It is unit testing code coverage tool. It shows how much of a code base is covered by unit test. When we write new code, the number of coverage should always increase, not decrease.
+
 Example DTO interface:
 
 interface PersonDTO {
@@ -60,11 +61,11 @@ void save(PersonDTO person);
 
 Annotations
 
-Name	Description
-@Named	 Provide a name to identify this object, once created.  Used in autowiring/dependency injection.
-@ManagedBean	Makes this bean available for JSF to use
-@Scope	
-How long should this bean remain in memory?
+Name | Description
+--- | ---
+@Named | Provide a name to identify this object, once created.  Used in autowiring/dependency injection.
+@ManagedBean | Makes this bean available for JSF to use
+@Scope	| How long should this bean remain in memory?
 
 "session" : the object should remain in memory for the entire time the user is logged in to the web session.
 
@@ -73,10 +74,11 @@ How long should this bean remain in memory?
 
 Important Files
 
-Filename	Purpose
-web.xml	Configuration for a Java-based web application.
-pom.xml	Configuration for Maven.  Build dependencies go here.
-faces-config.xml	JSF configuration file.  Navigation rules go here.
-applicationContext.xml	Spring configuration files.  Java bean definitions and component-scan go here.
-*.css	Stylesheet to provide consistent styling (font, etc.) across a website.
-*.xhtml	Where we put HTML markup and JSF tags to create the UI of our application.
+Filename | 	Purpose
+--- | ---
+web.xml | 	Configuration for a Java-based web application.
+pom.xml | 	Configuration for Maven.  Build dependencies go here.
+faces-config.xml | 	JSF configuration file.  Navigation rules go here.
+applicationContext.xml | 	Spring configuration files.  Java bean definitions and component-scan go here.
+*.css	 | Stylesheet to provide consistent styling (font, etc.) across a website.
+*.xhtml	 | Where we put HTML markup and JSF tags to create the UI of our application.
