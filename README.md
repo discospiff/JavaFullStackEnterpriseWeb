@@ -36,7 +36,7 @@ Dependency Injection	| A software design pattern that implements inversion of co
 DTO	| A Data Transfer Object is an object that is used to encapsulate data, and send it from one subsystem of an application to another. DTOs are most commonly used by the Services layer in an N-Tier application to transfer data between itself and the UI layer.
 Mockito |	Mockito is a mocking framework, Java-based library that is used for effective unit testing of Java applications.
 Web API	| A framework that makes it easy to build HTTP services that reach a broad range of clients, including browsers and mobile devices
-API	| Application program interface (API) is a set of routines, protocols, and tools for building software applications. An API specifies how software components should interact and APIs are used when programming graphical user interface (GUI) components.
+API	| Application program interface (API) is a set of routines, protocols, and tools for building software applications. An API specifies how software components should interact and APIs are used when programming graphical user interface (GUI) components.it ususeful while developing web Application and mobile applications.
 EclEmma |	It is unit testing code coverage tool. It shows how much of a code base is covered by unit test. When we write new code, the number of coverage should always increase, not decrease.
 
 Example DTO interface:
